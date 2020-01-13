@@ -11,7 +11,8 @@ for (var x = 0; x < pointStyleData.length; x += 4) {
   pointStyleData[x+2] = 0 //b
   pointStyleData[x+3] = 0 //a
 }
-pointStyleData[featureList['amenity.cafe']*4+0] = 20 //sets r to 20 for cafe
+//pointStyleData[featureList['amenity.cafe']*4+0] = 20 //sets r to 20 for cafe
+pointStyleData[featureList['highway.motorway']*4+0] = 20 //sets r to 10 for highway secondary
 
 module.exports = function (map) {
   return {
@@ -122,7 +123,7 @@ module.exports = function (map) {
       },
       primitive: "triangle strip",
       count: function (context, props) {
-        return props.positions.length
+        return props.positions.length/2
       },
       blend: {
         enable: true,
